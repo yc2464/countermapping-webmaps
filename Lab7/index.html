@@ -78,6 +78,27 @@ map.on('load',function(){
 });
 </script>
 
+<script>
+map.on('load',function(){
+  // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
+  map.addSource('NYCHA_layer',{
+    'type':'vector',
+    'url': 'mapbox://leahchen.cv9puudq'
+  });
+  // add a new layer with your polygons
+  map.addLayer({
+    'id':'NYCHA_developments',
+    'type':'fill',
+    'source':'NYCHA_layer',
+    'source-layer':'Map_of_NYCHA_Developments-455woh',
+    'paint':{
+      'fill-color':'#d37903',
+      'fill-opacity': 0.5
+    }
+  })
+});
+</script>
+
 </body>
 
 </html>
