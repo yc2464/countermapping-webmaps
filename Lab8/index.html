@@ -47,32 +47,48 @@
   mapboxgl.accessToken = 'pk.eyJ1IjoibGVhaGNoZW4iLCJhIjoiY2xuMXhxbDd5MDJoMjJqbmIyZ3BvaGdhdyJ9.caJH4T_iZebNdFvlAYkAOw';
   const map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/iamwfx/cl9519asg003414pl56w7ov95', // replace this with your style URL
+    style: 'mapbox://styles/leahchen/cln6ae1jc072j01ns84moaou0', // replace this with your style URL
     center: [-73.935242, 40.730610], // The convention for coordinates is  typically [long, lat]
     zoom: 13,
-    // maxZoom: 22,
-    // minZoom: 12
+     maxZoom: 22,
+     minZoom: 12
   });
 
   map.on('load',function(){
     // Give your layer's source a nickname you'll remember easily.
     map.addSource('sandyLayer',{
       'type':'vector',
-      'url': 'mapbox://iamwfx.bpjzmy2b'
+      'url': 'mapbox://leahchen.1zmknkc1'
     });
 
     map.addSource('nychaLayer',{
       'type':'vector',
-      'url': 'mapbox://iamwfx.28ut4nij'
+      'url': 'mapbox://leahchen.cv9puudq'
+    });
+
+    map.addSource('censusLayer',{
+      'type':'vector',
+      'url': 'mapbox://iamwfx.6nowkujs'
     });
 
     // add a new layer with your polygons
 
     map.addLayer({
+      'id':'povertyLevel',
+      'type':'fill',
+      'source':'censusLayer',
+      'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
+      'paint':{
+        'fill-color':'green',
+        'fill-opacity': 0.5
+      }
+    });
+    
+    map.addLayer({
       'id':'nychaBuildings',
       'type':'fill',
       'source':'nychaLayer',
-      'source-layer':'Map_of_NYCHA_Developments-7i6vok',
+      'source-layer':'Map_of_NYCHA_Developments-455woh',
       'paint':{
         'fill-color':'red',
         'fill-opacity': 0.5
@@ -83,7 +99,7 @@
       'id':'floodZones',
       'type':'fill',
       'source':'sandyLayer',
-      'source-layer':'Sandy_Inundation_Zone-4qcajo',
+      'source-layer':'Sandy_Inundation_Zone-4tnq9l',
       'paint':{
         'fill-color':'#00158f',
         'fill-opacity': 0.5
