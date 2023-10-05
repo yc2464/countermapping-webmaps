@@ -42,6 +42,21 @@
 	</div>
 
 	</div>
+  <div id='menu'>
+  <label class='check-container'>
+      Sandy Inundation Zone
+      <input id='floodZones' type='checkbox' name='viz-toggle' checked='checked'>
+    </label>
+  <label class='check-container'>
+      NYCHA Buildings
+      <input id='nychaBuildings' type='checkbox' name='viz-toggle' checked='checked'>
+  </label>
+  <label class='check-container'>
+      +300 People Below Poverty Line
+      <input id='povertyLevel' type='checkbox' name='viz-toggle' checked='checked'>
+  </label>
+</div>
+
   <script>
   // You'll be inserting your JS code to initialize your map here
   mapboxgl.accessToken = 'pk.eyJ1IjoibGVhaGNoZW4iLCJhIjoiY2xuMXhxbDd5MDJoMjJqbmIyZ3BvaGdhdyJ9.caJH4T_iZebNdFvlAYkAOw';
@@ -50,8 +65,8 @@
     style: 'mapbox://styles/leahchen/cln6ae1jc072j01ns84moaou0', // replace this with your style URL
     center: [-73.935242, 40.730610], // The convention for coordinates is  typically [long, lat]
     zoom: 13,
-     maxZoom: 22,
-     minZoom: 12
+     //maxZoom: 22,
+     //minZoom: 12
   });
 
   map.on('load',function(){
@@ -79,10 +94,16 @@
       'source':'censusLayer',
       'source-layer':'nyc_blck_grp_2020_wcensus_dro-4db43i',
       'paint':{
-        'fill-color':'green',
-        'fill-opacity': 0.5
+        'fill-color':
+          [
+            'step',
+            ['get','AMR5E002'],
+            'transparent',300,'#f5ef42'
+          ],
+        'fill-opacity':0.9
       }
     });
+
     
     map.addLayer({
       'id':'nychaBuildings',
@@ -106,8 +127,8 @@
       }
     });
   });
-  // Within a script, you comment using two backslashes.
   </script>
+
 </body>
 
 </html>
