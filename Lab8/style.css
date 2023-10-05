@@ -32,3 +32,9 @@ margin: 0 0 10px;
 max-width: 400px;
 font: 12px/20px 'Montserrat Neue',sans-serif;
 }
+
+.check-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
