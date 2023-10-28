@@ -1,7 +1,7 @@
         body {
             margin:0;
             padding:0;
-            font-family: sans-serif;
+            font-family: 'Merriweather', serif;
         }
         a, a:hover, a:visited {
             color: #0071bc;
@@ -40,13 +40,44 @@
             background-image: url("images/sandy1.png");
             background-position: pop;
             background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
+            background-size: 100vw 100vh;
+            height: 170vh;
         }
         #header h1, #header h2, #header p {
             margin: 0;
             padding: 2vh 2vw;
             text-align: center;
+        }
+        #header h1 {
+            font-size: 7vh;
+            color: white;
+            padding-top: 30vh;         
+        }
+        #header h2 {
+        color: white;
+        padding-bottom: 60vh;         
+        }
+        #header p {
+            font-size: 1.5vh;
+            text-align: justify;
+            margin-left: 32vw;
+            margin-right: 32vw;
+            color: black;
+        }
+        #interlude {
+            width: 100vw;
+        }
+        #interlude p {
+            font-size: 1.2vh;
+            text-align: justify;
+            margin-left: 34vw;
+            margin-right: 34vw;
+            background-color: : white;
+        }
+        video {
+            margin-left: 42.5vw;
+            width:32%;
+            transform: translate(-50%);
         }
         #footer {
             width: 100%;
