@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#YOUR-GIVEN-NAME {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%; } 
+
+#toolbar {
+    position: fixed;
+    left: 80%;
+    width: 20%;
+    top: 0;
+}
+
+#title h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#restName h4 {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#restText {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.name {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#legend {
+    position: fixed;
+    margin-left: 10px;
+    margin-right: 10px;
+    top: 250px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
