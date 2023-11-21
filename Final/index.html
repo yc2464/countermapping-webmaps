@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Animate a line</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+    button {
+        position: absolute;
+        margin: 20px;
+    }
+
+    #pause::after {
+        content: 'Pause';
+    }
+
+    #pause.pause::after {
+        content: 'Play';
+    }
+</style>
+<div id="map"></div>
+<button id="pause"></button>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibGVhaGNoZW4iLCJhIjoiY2xuMXhxbDd5MDJoMjJqbmIyZ3BvaGdhdyJ9.caJH4T_iZebNdFvlAYkAOw';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/leahchen/cloz7vs0w00my01qdglkqg2oo',
+        center: [-122.332, 37.827],
+        zoom: 10,
+        projection: 'equalEarth'
+    });
+
+    // Suppose trips is an array of trips, each containing a set of coordinates and time information.
+    /*fetch('D:/Cornell/CRP 5850 Mapping and Countermapping/Final project/BART_Data_S2019_2.json')
+        .then(response => response.json())
+        .then(data => {
+            const trips = data; 
+        });*/
+
+
+    // Initialize GeoJSON structure with multiple lines
+    fetch('mapbox://leahchen.7623fjtd')
+        .then(response => response.json())
+        .then(geojsonData => {
+            const geojson = geojsonData;
+        });
+
+    const speedFactor = 30; // number of frames per longitude degree
+    let animation; // to store and cancel the animation
+    let startTime = 1554076800;
+    let progress = 0; // progress = timestamp - startTime
+    let resetTime = false; // indicator of whether time reset is needed for the animation
+    const pauseButton = document.getElementById('pause');
+
+    map.on('load', () => {
+        map.addSource('line', {
+            'type': 'geojson',
+            'data': geojson
+        });
+
+        // add the line which will be modified in the animation
+        geojson.features.forEach((feature, index) => {
+            map.addLayer({
+                'id': `line-animation-${index}`,
+                'type': 'line',
+                'source': 'lines',
+                'filter': ['==', ['get', 'startTime'], feature.properties.startTime],
+                'layout': {
+                    'line-cap': 'round',
+                    'line-join': 'round'
+                },
+                'paint': {
+                    'line-color': '#ed6498',
+                    'line-width': 5,
+                    'line-opacity': 0.8
+                }
+            });
+        });
+
+
+        startTime = performance.now();
+
+        animateLine();
+
+        // click the button to pause or play
+        pauseButton.addEventListener('click', () => {
+            pauseButton.classList.toggle('pause');
+            if (pauseButton.classList.contains('pause')) {
+                cancelAnimationFrame(animation);
+            } else {
+                resetTime = true;
+                animateLine();
+            }
+        });
+
+        // reset startTime and progress once the tab loses or gains focus
+        // requestAnimationFrame also pauses on hidden tabs by default
+        document.addEventListener('visibilitychange', () => {
+            resetTime = true;
+        });
+
+
+        // animation function
+        function animateLines(timestamp) {
+            // update every line
+            geojson.features.forEach(feature => {
+                // Update the coordinates of each line based on time and other logic
+            });
+            // update dataset
+            map.getSource('lines').setData(geojson);
+
+            // Request next frame
+            requestAnimationFrame(animateLines);
+        }
+
+        requestAnimationFrame(animateLines);
+    });
+</script>
+
+</body>
+</html>
