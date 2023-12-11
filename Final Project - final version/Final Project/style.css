@@ -1,0 +1,186 @@
+        body {
+            margin:0;
+            padding:0;
+            font-family: 'Merriweather', serif;
+        }
+        a, a:hover, a:visited {
+            color: #0071bc;
+        }
+        #map {
+            top:0;
+            height: 100vh;
+            width:100vw;
+            position: fixed;
+        }
+
+        @media (max-width: 500px) {
+            #mapInset {
+                display: none;
+            }
+        }
+        #header {
+            margin: auto;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+            background-image: url("images/BART1.2.png");
+            background-position: pop;
+            background-repeat: no-repeat;
+            background-size: 100vw 100vh;
+            height: 190vh;
+        }
+        #blackbox {
+            position: absolute;
+            top: 25%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            width: 90vw; 
+            height: 60vh; 
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6; 
+        }
+        #header h1, #header h2, #header p {
+            position: relative;
+            z-index: 7; 
+            margin: 0;
+            padding: 2vh 2vw;
+            text-align: center;
+        }
+        #header h1 {
+            font-size: 7vh;
+            color: white;
+            padding-top: 30vh;         
+        }
+        #header h2 {
+        color: white;
+        padding-bottom: 60vh;         
+        }
+        #header p {
+            font-size: 1.6vh;
+            text-align: justify;
+            margin-left: 32vw;
+            margin-right: 32vw;
+            color: white;
+        }
+        #header img {
+            width: 50%; 
+            height: auto;
+            margin-left: 25%;
+        }
+        #interlude {
+            width: 100vw;
+        }
+        #interlude p {
+            /*font-size: 1.5vh;*/
+            text-align: justify;
+            margin-left: 30vw;
+            margin-right: 30vw;
+            background-color: : white;
+        }
+        #interlude img {
+            width: 50%; 
+            height: auto;
+            margin-left: 25%;
+        }
+        #before1, #after1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        #comparison-container1 {
+            position: absolute;
+                top: 825vh;
+                left: 50%;
+                /* z-index: 99999999; */
+                width: 50%;
+                height: 60%;
+        }
+        #before2, #after2 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        #comparison-container2 {
+            position: absolute;
+                top: 925vh;
+                left: 50%;
+                /* z-index: 99999999; */
+                width: 50%;
+                height: 60%;
+        }
+        /*#footer {
+            width: 100%;
+            min-height: 5vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            text-align: center;
+            line-height: 25px;
+            font-size: 13px;
+            position: relative;
+            z-index: 5;
+        }*/
+        #features {
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .centered {
+            width: 50vw;
+            margin: 0 auto;
+        }
+        .lefty {
+            width: 33vw;
+            margin-left: 5vw;
+        }
+        .righty {
+            width: 33vw;
+            margin-left: 62vw;
+        }
+        .fully {
+            width: 100%;
+            margin: auto;
+        }
+        .light {
+            color: #444;
+            background-color: #fafafa;
+        }
+        .dark {
+            color: #fafafa;
+            background-color: #444;
+        }
+        .step {
+            padding-bottom: 50vh;
+            /* margin-bottom: 10vh; */
+            opacity: 0.25;
+        }
+        .step.active {
+            opacity: 0.9;
+        }
+
+        .step div {
+            padding:  25px 50px;
+            line-height: 25px;
+            font-size: 13px;
+        }
+
+        .step img {
+            width: 100%;
+        }
+
+        @media (max-width: 750px) {
+            .centered, .lefty, .righty, .fully {
+                width: 90vw;
+                margin: 0 auto;
+            }
+        }
+
+        /* Fix issue on mobile browser where scroll breaks  */
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+            touch-action: unset;
+        }

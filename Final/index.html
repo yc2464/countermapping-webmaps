@@ -48,43 +48,45 @@ body { margin: 0; padding: 0; }
 
 
     // Initialize GeoJSON structure with multiple lines
+    let geojson;
+
     fetch('https://yc2464.github.io/countermapping-webmaps/Final/BART_Data_S2019_Time.json')
         .then(response => response.json())
         .then(geojsonData => {
             const geojson = geojsonData;
+
+                map.on('load', () => {
+                    map.addSource('line', {
+                        'type': 'geojson',
+                        'data': geojson
+                    });
+
+                    geojson.features.forEach((feature, index) => {
+                        map.addLayer({
+                            'id': `line-animation-${index}`,
+                            'type': 'line',
+                            'source': 'line', // 改为 'line'
+                            'filter': ['==', ['get', 'startTime'], feature.properties.startTime],
+                            'layout': {
+                                'line-cap': 'round',
+                                'line-join': 'round'
+                            },
+                            'paint': {
+                                'line-color': '#ed6498',
+                                'line-width': 5,
+                                'line-opacity': 0.8
+                            }
+                        });
+                    });
         });
 
     const speedFactor = 30; // number of frames per longitude degree
     let animation; // to store and cancel the animation
     let startTime = 1554076800;
-    let progress = 0; // progress = timestamp - startTime
+    let progress = 10; // progress = timestamp - startTime
     let resetTime = false; // indicator of whether time reset is needed for the animation
     const pauseButton = document.getElementById('pause');
 
-    map.on('load', () => {
-        map.addSource('line', {
-            'type': 'geojson',
-            'data': geojson
-        });
-
-        // add the line which will be modified in the animation
-        geojson.features.forEach((feature, index) => {
-            map.addLayer({
-                'id': `line-animation-${index}`,
-                'type': 'line',
-                'source': 'lines',
-                'filter': ['==', ['get', 'startTime'], feature.properties.startTime],
-                'layout': {
-                    'line-cap': 'round',
-                    'line-join': 'round'
-                },
-                'paint': {
-                    'line-color': '#ed6498',
-                    'line-width': 5,
-                    'line-opacity': 0.8
-                }
-            });
-        });
 
 
         startTime = performance.now();
@@ -110,7 +112,7 @@ body { margin: 0; padding: 0; }
 
 
         // animation function
-        function animateLines(timestamp) {
+       /* function animateLines(timestamp) {
             // update every line
             geojson.features.forEach(feature => {
                 // Update the coordinates of each line based on time and other logic
@@ -123,7 +125,50 @@ body { margin: 0; padding: 0; }
         }
 
         requestAnimationFrame(animateLines);
-    });
+    });*/
+
+function animateLine(timestamp) {
+    if (!geojson.features.length) {
+        return; // 如果没有特征，直接返回
+    }
+
+    if (resetTime) {
+        // 重新开始动画
+        startTime = performance.now() - progress;
+        resetTime = false;
+    } else {
+        progress = timestamp - startTime;
+    }
+
+    // 获取第一个特征的线路坐标
+    let lineCoordinates = geojson.features[0].geometry.coordinates;
+    let lineLength = lineCoordinates.length;
+
+    // 根据 progress 计算当前坐标的索引
+    let currentIndex = Math.floor((progress / 1000) % lineLength);
+
+    // 创建一个只包含当前点的新的 GeoJSON
+    let currentGeojson = {
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': lineCoordinates[currentIndex]
+                }
+            }
+        ]
+    };
+
+    // 更新地图数据源
+    map.getSource('line').setData(currentGeojson);
+
+    // 请求下一帧
+    animation = requestAnimationFrame(animateLine);
+}
+});
+
 </script>
 
 </body>
