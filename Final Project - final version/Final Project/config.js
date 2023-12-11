@@ -283,6 +283,20 @@ var config = {
               zoom: 9,
               pitch: 0,
               bearing: 0,
+            }, 
+        }, 
+        {
+            id: 'interlude9',
+            alignment: 'center',
+            hidden: false,
+            title: 'Conclusion',
+            description: 'Overall, low-income, carless, female seniors are more reliant on BART for travel, and they are less able to access alternative modes of travel. At the same time, in addition to the change in the number of ridership, the resistance to large events and the preference for private events has led to a shift in the purpose of travel for seniors, as well as a greater tendency to prefer closer activities.',
+            //image: 'images/The Change of Travel Purpose - Increase.jpg', 
+            location: {
+              center: [-122.44985343288347, 37.70282671304935],
+              zoom: 9,
+              pitch: 0,
+              bearing: 0,
             }
         }
     ]

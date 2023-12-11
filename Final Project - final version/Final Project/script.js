@@ -284,8 +284,9 @@ map.on("load", function () {
         var chapterinter6 = document.getElementById('interlude6');
         var chapterinter7 = document.getElementById('interlude7');
         var chapterinter8 = document.getElementById('interlude8');
+        var chapterinter9 = document.getElementById('interlude9');
 
-        if (isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter3) || isElementInViewport(chapter4) || isElementInViewport(chapter5) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8)) {
+        if (isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter3) || isElementInViewport(chapter4) || isElementInViewport(chapter5) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8) || isElementInViewport(chapterinter9)) {
             map.setLayoutProperty('Means_Trans', 'visibility', 'none');
         }
     });
@@ -527,8 +528,9 @@ map.on("load", function () {
         var chapterinter6 = document.getElementById('interlude6');
         var chapterinter7 = document.getElementById('interlude7');
         var chapterinter8 = document.getElementById('interlude8');
+        var chapterinter9 = document.getElementById('interlude9');
 
-        if (isElementInViewport(chapter1) || isElementInViewport(chapter2) || isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter4) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8)) {
+        if (isElementInViewport(chapter1) || isElementInViewport(chapter2) || isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter4) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8) || isElementInViewport(chapterinter9)) {
             map.setLayoutProperty('S_Change', 'visibility', 'none');
         }
 
