@@ -141,14 +141,15 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Senior Adult OD Metrics 2019-2021',
-            description: "This is BART's Senior Adult OD Metrics from 2019 to 2021. 2019 on the left and 2021 on the right. We can clearly see a significant reduction in the percentage of long distance trips. bart is no longer an important mode of travel for their long distance trips.", 
+            description: "This is BART's Senior Adult OD Metrics from 2019 to 2021. 2019 on the left and 2021 on the right. We can clearly see a significant reduction of long distance trips, only trips in downtown San Francisco remain active. BART is no longer an important mode of travel for their long distance trips.", 
+            image: 'images/Legend Ridership.png', 
             beforeMap: {
-                style: 'mapbox://styles/leahchen/clpeskda8007g01qmf5zh92aj',
+                style: 'mapbox://styles/leahchen/clq721xvx002q01qraxi73qg6',
                 center: [-122.2, 37.7],
                 zoom: 8.3
             },
             afterMap: {
-                style: 'mapbox://styles/leahchen/clpeuqow5006r01p41uqu8ayz',
+                style: 'mapbox://styles/leahchen/clq72228c002p01nv1gbag2ds',
                 center: [-122.2, 37.7],
                 zoom: 8.3
             },
@@ -158,14 +159,15 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Senior Adult OD Metrics 2021-2022',
-            description:"In BART's Senior Adult OD Metrics from 2021 to 2022, the left side is for 2019 and the right side is for 2021. There is no significant change in the percentage of trips for the different distances in them. A closer look reveals that some of the shorter distance trips are prioritized for recovery.", 
+            description:"In BART's Senior Adult OD Metrics from 2021 to 2022, the left side is for 2021 and the right side is for 2022. There is no significant change in the trips for the different distances in them. A closer look reveals that some of the shorter distance trips are prioritized for recovery, such as Daly City to Downtown San Francisco and El Cerrito to Downtown San Francisco.", 
+            image: 'images/Legend Ridership.png', 
             beforeMap: {
-                style: 'mapbox://styles/leahchen/clpeuqow5006r01p41uqu8ayz',
+                style: 'mapbox://styles/leahchen/clq72228c002p01nv1gbag2ds',
                 center: [-122.2, 37.7],
                 zoom: 8.3
             },
             afterMap: {
-                style: 'mapbox://styles/leahchen/clpf3nkxl007l01qmcjq73l4d',
+                style: 'mapbox://styles/leahchen/clq7225wz002r01qrblvtck47',
                 center: [-122.2, 37.7],
                 zoom: 8.3
             },

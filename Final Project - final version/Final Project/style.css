@@ -91,7 +91,7 @@
         }
         #comparison-container1 {
             position: absolute;
-                top: 825vh;
+                top: 850vh;
                 left: 50%;
                 /* z-index: 99999999; */
                 width: 50%;
@@ -105,7 +105,7 @@
         }
         #comparison-container2 {
             position: absolute;
-                top: 925vh;
+                top: 975vh;
                 left: 50%;
                 /* z-index: 99999999; */
                 width: 50%;
