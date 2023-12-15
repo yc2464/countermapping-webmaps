@@ -530,7 +530,7 @@ map.on("load", function () {
         var chapterinter8 = document.getElementById('interlude8');
         var chapterinter9 = document.getElementById('interlude9');
 
-        if (isElementInViewport(chapter1) || isElementInViewport(chapter2) || isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter4) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8) || isElementInViewport(chapterinter9)) {
+        if (isElementInViewport(chapter1) || isElementInViewport(chapter2) || isElementInViewport(chapterinter) || isElementInViewport(chapterinter2) || isElementInViewport(chapter3) || isElementInViewport(chapter4) || isElementInViewport(chapter6) || isElementInViewport(chapterinter3) || isElementInViewport(chapterinter4) || isElementInViewport(chapterinter5) || isElementInViewport(chapterinter6) || isElementInViewport(chapterinter7) || isElementInViewport(chapterinter8) || isElementInViewport(chapterinter9)) {
             map.setLayoutProperty('S_Change', 'visibility', 'none');
         }
 
